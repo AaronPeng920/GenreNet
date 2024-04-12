@@ -1,0 +1,44 @@
+data:
+  train_path: ~
+  val_path: ~
+  sr: 16000
+  duration: 3.17    # {time 3.17: frames 100}
+  n_mels: 128
+  n_fft: 1024
+  train_batchsize: 4
+  val_batchsize: 1
+
+model:
+  t_seq_len: 100
+  t_patch_size: 10
+  f_seq_len: 128
+  f_patch_size: 8
+  num_classes: 4
+  dim: 1024       
+  model_dim: 256  
+  depth: 6        
+  heads: 8
+  mlp_dim: 2048
+  dropout: 0.1
+  emb_dropout: 0.1
+  sinc_in_channels: 1
+  sinc_out_channels: 160
+  sinc_kernel_size: [251, 501, 1001]
+
+train:
+  manual_seed: 12138
+  lr: 0.005
+  gamma: 0.5
+  milestones: [30, 60, 90]
+  ema_decay: 0.999
+  num_classes: 4
+
+  trainer:
+    devices: 1
+    accelerator: 'gpu'
+    strategy: 'ddp'
+    max_epochs: 100
+
+  logging:
+    save_dir: "logs/"
+    name: 'CantoneseClsLog'
