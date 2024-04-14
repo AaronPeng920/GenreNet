@@ -9,12 +9,12 @@ data:
   val_batchsize: 1
 
 model:
-  num_classes: 4 
+  num_classes: 3
 
 train:
   manual_seed: 12138
   lr: 0.0001
-  num_classes: 4
+  num_classes: 3
   step: 30
   gamma: 0.1
 

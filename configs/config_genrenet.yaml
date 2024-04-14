@@ -13,7 +13,7 @@ model:
   t_patch_size: 10
   f_seq_len: 128
   f_patch_size: 8
-  num_classes: 4
+  num_classes: 3
   dim: 1024       
   model_dim: 256  
   depth: 6        

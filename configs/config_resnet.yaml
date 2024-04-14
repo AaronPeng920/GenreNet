@@ -9,13 +9,13 @@ data:
   val_batchsize: 1
 
 model:
-  num_classes: 4 
+  num_classes: 3 
   in_channels: 1
 
 train:
   manual_seed: 12138
-  lr: 0.01
-  num_classes: 4
+  lr: 0.005
+  num_classes: 3
 
   trainer:
     devices: 1
