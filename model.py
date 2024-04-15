@@ -6,7 +6,7 @@ from ema import EMA
 from torch.optim.lr_scheduler import ExponentialLR, MultiStepLR
 import numpy as np
 
-class GenreNet(pl.LightningModule):
+class RoleNet(pl.LightningModule):
     def __init__(self, model, **params):
         super().__init__()
         

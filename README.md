@@ -1,5 +1,5 @@
-# GenreNet: Multi-objective Feature Fusion Network for Cantonese Opera Genre Classification
-![GenreNet](assets/GenreNet.png)
+# RoleNet: Multi-objective Feature Fusion Network for Cantonese Opera Role Classification
+![GenreNet](assets/RoleNet.png)
 
 ## Prepare Data
 1. Split the original audio into 30s segments
@@ -18,5 +18,5 @@ Keep the number of files in `main_dir` as $n (n \geq 0)$ files or move $n (n < 0
 ```python
 python train.py -m model_name -c config_file
 ```
-`model_name` specifies the name of the model to be trained, default to `genrenet`. `config_file` specifies the config file that matches the model.
+`model_name` specifies the name of the model to be trained, default to `rolenet`. `config_file` specifies the config file that matches the model.
 

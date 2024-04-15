@@ -70,7 +70,7 @@ class Transformer(nn.Module):
             x = ff(x) + x
         return x
 
-class GenreNetBlock(nn.Module):
+class RoleNetBlock(nn.Module):
     def __init__(self, *, seq_len, patch_size, num_classes, dim, depth, heads, mlp_dim, channels=3, dim_head=64, dropout=0., emb_dropout=0.):
         super().__init__()
         assert (seq_len % patch_size) == 0
@@ -267,7 +267,7 @@ class SincNet(nn.Module):
         return out
          
         
-class GenreNetModule(nn.Module):
+class RoleNetModule(nn.Module):
     def __init__(
         self, 
         t_seq_len, 
@@ -289,7 +289,7 @@ class GenreNetModule(nn.Module):
     ):
         super().__init__()
         
-        self.t_genreformer = GenreNetBlock(
+        self.t_genreformer = RoleNetBlock(
             seq_len = t_seq_len,
             patch_size = t_patch_size,
             num_classes = model_dim,
@@ -302,7 +302,7 @@ class GenreNetModule(nn.Module):
             channels=f_seq_len
         )
         
-        self.f_genreformer = GenreNetBlock(
+        self.f_genreformer = RoleNetBlock(
             seq_len = f_seq_len,
             patch_size = f_patch_size,
             num_classes = model_dim,

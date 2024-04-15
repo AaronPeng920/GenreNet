@@ -1,5 +1,5 @@
-from models import GenreNetModule, VGG19Module, ResNet50, AlexNetModule
-from model import GenreNet, VGG, ResNet, AlexNet
+from models import RoleNetModule, VGG19Module, ResNet50, AlexNetModule
+from model import RoleNet, VGG, ResNet, AlexNet
 from dataset import MelSpectrogramDataModule
 import yaml
 import torch
@@ -16,8 +16,8 @@ def get_opt():
         "-m",
         "--model",
         type=str,
-        default='genrenet',
-        choices=['genrenet', 'alexnet', 'resnet', 'vgg'],
+        default='rolenet',
+        choices=['rolenet', 'alexnet', 'resnet', 'vgg'],
         help='choose model to train'
     )
     
@@ -25,7 +25,7 @@ def get_opt():
         "-c",
         "--config",
         type=str,
-        default='configs/config_genrenet.yaml',
+        default='configs/config_rolenet.yaml',
         help='choose config file to control training progress'
     )
     
@@ -44,9 +44,9 @@ if __name__ == '__main__':
     data_config = config['data']
 
     # init model
-    if opt.model == 'genrenet':
-        genre_model = GenreNetModule(**config['model'])
-        model = GenreFormer(genre_model, **train_config)
+    if opt.model == 'rolenet':
+        genre_model = RoleNetModule(**config['model'])
+        model = RoleNet(genre_model, **train_config)
     elif opt.model == 'vgg':
         vgg19_model = VGG19Module(**config['model'])
         model = VGG(vgg19_model, **train_config)
